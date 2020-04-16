@@ -1,26 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { hot } from 'react-hot-loader/root'
+import React from 'react'
+import { Router, RouteComponentProps } from '@reach/router'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const Home = (props: RouteComponentProps) => <div>Home</div>
+const Another = (props: RouteComponentProps) => <div>Another Page</div>
 
-export default App;
+
+const App = () => (
+  <Router>
+    <Home path="/" />
+    <Another path="/another" />
+  </Router>
+)
+
+export default hot(App)

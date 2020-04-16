@@ -1,0 +1,19 @@
+{
+	"plugins": [
+		[
+			"babel-plugin-styled-components",
+			{
+				"ssr": false,
+				"fileName": false,
+				"pure": true
+			}
+		],
+		[
+			"module-resolver",
+			{
+				"extensions": [".ts", ".tsx"]
+			}
+		],
+		"react-hot-loader/babel"
+	]
+}

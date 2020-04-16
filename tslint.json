@@ -1,0 +1,17 @@
+{
+	"extends": ["tslint:recommended", "tslint-react-hooks"],
+	"rules": {
+		"arrow-parens": true,
+		"member-ordering": false,
+		"no-boolean-literal-compare": true,
+		"no-duplicate-imports": true,
+		"no-unused-expression": false,
+		"no-unused-variable": true,
+		"object-literal-key-quotes": [true, "as-needed"],
+		"object-literal-sort-keys": false,
+		"ordered-imports": false,
+		"react-hooks-nesting": "error",
+		"switch-default": true,
+		"trailing-comma": true
+	}
+}
