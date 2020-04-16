@@ -1,9 +1,9 @@
-import { hot } from 'react-hot-loader/root'
-import React from 'react'
-import { Router, RouteComponentProps } from '@reach/router'
+import { hot } from 'react-hot-loader/root';
+import React from 'react';
+import { Router, RouteComponentProps } from '@reach/router';
+import Home from 'pages/home';
 
-const Home = (props: RouteComponentProps) => <div>Home</div>
-const Another = (props: RouteComponentProps) => <div>Another Page</div>
+const Another = (props: RouteComponentProps) => <div>Another Page</div>;
 
 
 const App = () => (
@@ -11,6 +11,6 @@ const App = () => (
     <Home path="/" />
     <Another path="/another" />
   </Router>
-)
+);
 
-export default hot(App)
+export default hot(App);

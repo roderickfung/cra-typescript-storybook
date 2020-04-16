@@ -12,43 +12,31 @@ export const ButtonBase = styled.button<IButtonBaseProps>`
 	border-radius: 5px;
 	font-size: 14px;
 	cursor: pointer;
-	transition: border-width 0.1s linear;
-	${({ disabled, secondary }) => {
-		if (!disabled && secondary) {
-			return css`
-				:hover {
-					border-bottom-width: 2px;
-					border-bottom-color: teal;
-					border-bottom-style: solid;
-				}
-			`;
-		} else if (!disabled && !secondary) {
-			return css`
-				:hover {
-					border-bottom-width: 2px;
-					border-bottom-color: lightgray;
-					border-bottom-style: solid;
-				}
-			`;
-		}
-	}}
+	transition: opacity 0.2s linear;
+	${({ disabled }) =>
+		!disabled &&
+		css`
+			:hover {
+				opacity: 0.8;
+			}
+		`}
 	${({ secondary, disabled }) => {
 		if (disabled) {
 			return css`
-				background-color: lightgray;
-				color: darkslategray;
+				background-color: ${({ theme }) => theme.colors.gray10};
+				color: ${({ theme }) => theme.colors.gray60};
 			`;
 		} else if (secondary) {
 			return css`
-				border: 1px solid teal;
-				background-color: white;
-				color: teal;
+				border: 1px solid ${({ theme }) => theme.colors.primary};
+				background-color: ${({ theme }) => theme.colors.white};
+				color: ${({ theme }) => theme.colors.primary};
 			`;
 		} else {
 			return css`
-				border: none;
-				background-color: teal;
-				color: white;
+				border: 1px solid ${({ theme }) => theme.colors.primary};
+				background-color: ${({ theme }) => theme.colors.primary};
+				color: ${({ theme }) => theme.colors.white};
 			`;
 		}
 	}}

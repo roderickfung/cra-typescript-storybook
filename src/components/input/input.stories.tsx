@@ -1,24 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
 import styled from "styled-components";
 import { storiesOf } from "@storybook/react";
-import Input from "./index";
+import Input, { InputType } from './input';
 
 const Wrapper = styled.section`
-	width: 50%;
-	margin: auto;
+	width: 300px;
 `;
 
 const InputDemo = () => {
-	const [value, setValue] = useState<string | number | string[] | undefined>(
+	const [value, setValue] = useState<InputType>(
 		""
 	);
 
-	const onSubmit = (submittedValue: string | number | string[] | undefined) =>
-		setValue(submittedValue);
+	const onChange = (e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value);
 
 	return (
 		<Wrapper>
-			<Input defaultValue={value} onSubmit={onSubmit} type="string" />
+			<Input value={value} onChange={onChange} />
 		</Wrapper>
 	);
 };

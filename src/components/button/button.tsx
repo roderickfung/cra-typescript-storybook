@@ -10,7 +10,7 @@ export interface IButtonProps {
 }
 
 const Button = ({ children, disabled, onClick, ...props }: IButtonProps) => (
-	<ButtonBase disabled={disabled} onClick={onClick} {...props}>
+	<ButtonBase className="button" disabled={disabled} onClick={onClick} {...props}>
 		{children}
 	</ButtonBase>
 );
