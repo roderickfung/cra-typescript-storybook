@@ -1,12 +1,6 @@
 import React from "react";
+import { IInputProps } from './index';
 import { InputBase } from "./styles";
-
-export type InputType = string | number | string[] | undefined;
-export interface IInputProps {
-	value: InputType;
-	type?: string;
-	onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-}
 
 const Input = ({ value, onChange, type = "string", ...props }: IInputProps) => (
 	<InputBase

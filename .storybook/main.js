@@ -1,5 +1,16 @@
 module.exports = {
   stories: ['../src/components/**/*.stories.tsx'],
+  addons: [
+    {
+      name: '@storybook/addon-storysource',
+      loaderOptions: {
+        prettierConfig: {printWidth: 80, singleQuote: false }
+      }
+    },
+    {
+      name: '@storybook/addon-backgrounds/register'
+    }
+  ],
   webpackFinal: async config => {
     config.module.rules.push({
       test: /\.(ts|tsx)$/,

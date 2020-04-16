@@ -1,7 +1,7 @@
 import React, { useState, ChangeEvent } from "react";
 import styled from "styled-components";
 import { storiesOf } from "@storybook/react";
-import Input, { InputType } from './input';
+import Input, { InputType } from './index';
 
 const Wrapper = styled.section`
 	width: 300px;

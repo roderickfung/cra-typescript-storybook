@@ -1,6 +1,11 @@
 import { combineReducers } from "redux";
-export interface IRootReducerProps {}
+import itemsReducer, { IItemsState } from "./items";
+export interface IRootReducerProps {
+	itemsReducer: IItemsState;
+}
 
-const reducers = combineReducers<IRootReducerProps>({});
+const reducers = combineReducers<IRootReducerProps>({
+	itemsReducer,
+});
 
 export default reducers;

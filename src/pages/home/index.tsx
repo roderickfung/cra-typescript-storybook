@@ -1,15 +1,18 @@
 import { connect } from 'react-redux';
-import Home from './home';
-import { IRootReducerProps } from 'reducers';
 import { RouteComponentProps } from '@reach/router';
+import { addItem } from 'actions/items';
+import { IItem } from 'interfaces/items';
+import { IRootReducerProps } from 'reducers';
+import Home from './home';
 
 export interface IStateFromProps extends RouteComponentProps {
-  state: IRootReducerProps;
+  items: IItem[];
+  addItem: (label: string) => void;
 }
 
 const mapStateToProps = (state: IRootReducerProps, navProps: RouteComponentProps) => ({
-  state,
+  items: state.itemsReducer.items,
   ...navProps
 });
 
-export default connect(mapStateToProps, {})(Home);
+export default connect(mapStateToProps, { addItem })(Home);

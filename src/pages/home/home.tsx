@@ -1,24 +1,26 @@
-import React from 'react';
+import React, { useState, ChangeEvent } from "react";
+import Input from "components/input";
+import Button from "components/button";
 import { IStateFromProps } from "./index";
-import { Wrapper } from './styles';
+import { InputWrapper, Wrapper } from "./styles";
 
-const Home = (props: IStateFromProps) => {
-  console.log('PAGE PROPS', props);
+const Home = ({ addItem, items }: IStateFromProps) => {
+  const [value, setValue] = useState<string>("");
+
+  const update = (e: ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
+  const onClick = () => {
+    addItem(value);
+    return setValue("");
+  };
+
   return (
     <Wrapper>
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <InputWrapper>
+        <Input value={value} onChange={update} />
+        <Button onClick={onClick}>Add Item</Button>
+      </InputWrapper>
     </Wrapper >
   );
 };
