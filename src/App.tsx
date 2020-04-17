@@ -9,7 +9,7 @@ const Another = (props: RouteComponentProps) => <div>Another Page</div>;
 const App = () => (
   <Router>
     <Home path="/" />
-    <Another path="/another" />
+    <Another path="/another-page" />
   </Router>
 );
 

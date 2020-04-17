@@ -1,26 +1,35 @@
-import React, { useState, ChangeEvent } from "react";
-import Input from "components/input";
-import Button from "components/button";
+import React, { useEffect } from "react";
+import { IPost } from 'interfaces/posts';
+import { IUser } from 'interfaces/users';
 import { IStateFromProps } from "./index";
-import { InputWrapper, Wrapper } from "./styles";
+import { PostWrapper, Wrapper } from "./styles";
 
-const Home = ({ addItem, items }: IStateFromProps) => {
-  const [value, setValue] = useState<string>("");
+const Post = ({ post, author }: any) => (
+  <PostWrapper key={post.id}>
+    <div style={{ fontWeight: "bold", fontSize: 16, margin: "5px" }}>{post.title}</div>
+    <div>{author.name}</div>
+    <div>{post.body}</div>
+  </PostWrapper>
+);
 
-  const update = (e: ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
-  };
-  const onClick = () => {
-    addItem(value);
-    return setValue("");
-  };
+const Home = ({ users, posts, getUsers, getPosts }: IStateFromProps) => {
+
+  useEffect(() => {
+    getUsers();
+    getPosts();
+  }, [getPosts, getUsers]);
 
   return (
     <Wrapper>
-      <InputWrapper>
-        <Input value={value} onChange={update} />
-        <Button style={{ marginLeft: "-50px" } as React.CSSProperties} onClick={onClick}>Add Item</Button>
-      </InputWrapper>
+      {
+        posts.map((post: IPost) => {
+          const author = users.find((user: IUser) => user.id === post.userId);
+          console.log('author', author);
+          return (
+            <Post post={post} author={author} />
+          );
+        })
+      }
     </Wrapper >
   );
 };
