@@ -1,13 +1,6 @@
-import React, { ReactNode } from "react";
+import React from "react";
+import { IButtonProps } from "./index";
 import { ButtonBase } from "./styles";
-
-export interface IButtonProps {
-	children: ReactNode;
-	onClick: () => void;
-	disabled?: boolean;
-	width?: number;
-	secondary?: boolean;
-}
 
 const Button = ({ children, disabled, onClick, ...props }: IButtonProps) => (
 	<ButtonBase className="button" disabled={disabled} onClick={onClick} {...props}>

@@ -19,7 +19,7 @@ const Home = ({ addItem, items }: IStateFromProps) => {
     <Wrapper>
       <InputWrapper>
         <Input value={value} onChange={update} />
-        <Button onClick={onClick}>Add Item</Button>
+        <Button style={{ marginLeft: "-50px" } as React.CSSProperties} onClick={onClick}>Add Item</Button>
       </InputWrapper>
     </Wrapper >
   );
